@@ -66,99 +66,99 @@
 // let c = 20; //Sytax error
 
 // call apply bind //
-console.log(
-  "--------------------------------Call-----------------------------------------"
-);
-let student_obj = {
-  fname: "Sourav",
-  lname: "Routh",
-  displayName: function () {
-    console.log(`${this.fname}  ${this.lname}`); // if we use an arrow function over here, "this" -> will give undefined
-    //because Arrow functions treat this keyword differently. They don’t define their own context since it doesn’t have its own this context.
-    //They inherit that from the parent scope whenever you call this.
-  },
-};
+// console.log(
+//   "--------------------------------Call-----------------------------------------"
+// );
+// let student_obj = {
+//   fname: "Sourav",
+//   lname: "Routh",
+//   displayName: function () {
+//     console.log(`${this.fname}  ${this.lname}`); // if we use an arrow function over here, "this" -> will give undefined
+//     //because Arrow functions treat this keyword differently. They don’t define their own context since it doesn’t have its own this context.
+//     //They inherit that from the parent scope whenever you call this.
+//   },
+// };
 
-let student_obj2 = {
-  fname: "Kousik",
-  lname: "Routh",
-  displayName: function () {
-    console.log(`${this.fname}  ${this.lname}`);
-  },
-};
-student_obj.displayName(); // Sourav Routh
-student_obj2.displayName(); // Kousik Routh
+// let student_obj2 = {
+//   fname: "Kousik",
+//   lname: "Routh",
+//   displayName: function () {
+//     console.log(`${this.fname}  ${this.lname}`);
+//   },
+// };
+// student_obj.displayName(); // Sourav Routh
+// student_obj2.displayName(); // Kousik Routh
 
-// ------to get rid of writing same function in an different objects we will write only one function and use that for multiple obj-------
-// ------we do that use call, call is basically a function borrowing--------
+// // ------to get rid of writing same function in an different objects we will write only one function and use that for multiple obj-------
+// // ------we do that use call, call is basically a function borrowing--------
 
-function displayNameForCall() {
-  console.log(`${this.fname} ${this.lname}`);
-}
+// function displayNameForCall() {
+//   console.log(`${this.fname} ${this.lname}`);
+// }
 
-let newStudentObj = {
-  fname: "Sanjib",
-  lname: "Chabri",
-};
-let newStudentObj2 = {
-  fname: "Anup",
-  lname: "Praharaj",
-};
+// let newStudentObj = {
+//   fname: "Sanjib",
+//   lname: "Chabri",
+// };
+// let newStudentObj2 = {
+//   fname: "Anup",
+//   lname: "Praharaj",
+// };
 
-//displayNameForCall.call(newStudentObj); //using displayNameForCall function for both objects and
-//displayNameForCall.call(newStudentObj2); //using call set the displayNameForCall()'s this to the objects
+// //displayNameForCall.call(newStudentObj); //using displayNameForCall function for both objects and
+// //displayNameForCall.call(newStudentObj2); //using call set the displayNameForCall()'s this to the objects
 
-console.log(
-  "--------------------------------Apply------------------------------------------"
-);
+// console.log(
+//   "--------------------------------Apply------------------------------------------"
+// );
 
-function displayNameForApply(city, state) {
-  console.log(`${this.fname} ${this.lname} from ${city}, ${state} district`);
-}
+// function displayNameForApply(city, state) {
+//   console.log(`${this.fname} ${this.lname} from ${city}, ${state} district`);
+// }
 
-let hostelStudentstObj = {
-  fname: "Nilanjan",
-  lname: "Dey",
-};
-let hostelStudentstObj2 = {
-  fname: "Dipanjan",
-  lname: "Kamilya",
-};
+// let hostelStudentstObj = {
+//   fname: "Nilanjan",
+//   lname: "Dey",
+// };
+// let hostelStudentstObj2 = {
+//   fname: "Dipanjan",
+//   lname: "Kamilya",
+// };
 
-displayNameForApply.apply(hostelStudentstObj, ["Bishnupur", "Bankura"]); //using displayNameForApply function for both objects and
-displayNameForApply.apply(hostelStudentstObj2, ["Bakhrabad", "Belda"]); //using Apply set the displayNameForApply()'s this to the objects and pass other arguments as an aray
-//Apply is same as call but here we have to pass other arguments as an array
+// displayNameForApply.apply(hostelStudentstObj, ["Bishnupur", "Bankura"]); //using displayNameForApply function for both objects and
+// displayNameForApply.apply(hostelStudentstObj2, ["Bakhrabad", "Belda"]); //using Apply set the displayNameForApply()'s this to the objects and pass other arguments as an aray
+// //Apply is same as call but here we have to pass other arguments as an array
 
-console.log(
-  "--------------------------------Bind------------------------------------------"
-);
+// console.log(
+//   "--------------------------------Bind------------------------------------------"
+// );
 
-function displayNameForBind(city, state) {
-  console.log(`${this.fname} ${this.lname} from ${city}, ${state} district`);
-}
+// function displayNameForBind(city, state) {
+//   console.log(`${this.fname} ${this.lname} from ${city}, ${state} district`);
+// }
 
-let hostelStudentstObj3 = {
-  fname: "Souvik ",
-  lname: "Biswas",
-};
-let hostelStudentstObj4 = {
-  fname: "Anirban",
-  lname: "Halder",
-};
+// let hostelStudentstObj3 = {
+//   fname: "Souvik ",
+//   lname: "Biswas",
+// };
+// let hostelStudentstObj4 = {
+//   fname: "Anirban",
+//   lname: "Halder",
+// };
 
-let callHostelStudents1 = displayNameForBind.bind(
-  hostelStudentstObj3,
-  "Nadia",
-  "Nadia"
-);
-let callHostelStudents2 = displayNameForBind.bind(
-  hostelStudentstObj4,
-  "Bankura",
-  "Bankura"
-);
+// let callHostelStudents1 = displayNameForBind.bind(
+//   hostelStudentstObj3,
+//   "Nadia",
+//   "Nadia"
+// );
+// let callHostelStudents2 = displayNameForBind.bind(
+//   hostelStudentstObj4,
+//   "Bankura",
+//   "Bankura"
+// );
 
-//here in Bind same as call we need to pass the "this" of calling using  as an object.
-//and using bind , it returns another function that we can call any where
+// //here in Bind same as call we need to pass the "this" of calling using  as an object.
+// //and using bind , it returns another function that we can call any where
 
-callHostelStudents1(); // calling those functions which are return by bind
-callHostelStudents2();
+// callHostelStudents1(); // calling those functions which are return by bind
+// callHostelStudents2();
