@@ -162,3 +162,63 @@
 
 // callHostelStudents1(); // calling those functions which are return by bind
 // callHostelStudents2();
+
+//----------------------------Function Curring---------------------------------------------
+
+// let multiply = (x, y) => {
+//   console.log(x * y);
+// };
+
+// // let multiplyCurring = multiply.bind(this, 2);// using bind
+// // multiplyCurring(3);
+
+// let multiplyCurring = multiply.bind(this); // using bind
+// multiplyCurring(2, 3);
+
+// let multiplyClosureCurring = (x) => {
+//   //using closure
+//   return (y) => {
+//     console.log(x * y);
+//   };
+// };
+
+// multiplyClosureCurring(5)(5);
+
+// let getNewData = (arr) => {
+//   let newArr = arr;
+//   newArr.push(5);
+// };
+
+// let checkCopy = () => {
+//   let arr = [1, 2, 3, 4];
+//   getNewData(arr);
+
+//   console.log(arr); // output -> [1,2,3,4,5]  because arguments are passed by reference, so modifing in the arguments
+//   // will directly change the original value of that argument
+// };
+
+// checkCopy();
+
+// to get rid of this we can use deep copy.
+
+// let getNewData = (arr) => {
+//   let newArr = [...arr]; //deep copy here we destructure the array and copy it in a new variable
+//   newArr.push(5);
+// };
+
+// let checkCopy = () => {
+//   let arr = [1, 2, 3, 4];
+//   getNewData(arr);
+
+//   console.log(arr);
+// };
+
+// checkCopy();
+
+// let arr = [1, 2, 3, 4];
+// console.log(typeof arr); //object --> beacuse typeof non primitive data type are 'object'
+
+// let string = "Sourav";
+// console.log(typeof string); //String --> because typeof primitive except null , like : number, string are the respective variable type
+
+// console.log(typeof null); //Object --> by default bug
