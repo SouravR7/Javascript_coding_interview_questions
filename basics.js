@@ -222,3 +222,36 @@
 // console.log(typeof string); //String --> because typeof primitive except null , like : number, string are the respective variable type
 
 // console.log(typeof null); //Object --> by default bug
+// typeof -> any function --> function
+
+// sum(1)(2)(3).....()
+//will solve this using function currting and recursively
+
+// function sum(x) {
+//   return function (y) {
+//     if (y) {
+//       return sum(x + y); //recursively
+//     } else {
+//       return x;
+//     }
+//   };
+// }
+
+// console.log(sum(1)(2)(3)());
+
+//-----------------------funton hoisting----------------------------------------------------
+
+// getName(); // hello world
+// console.log(a); // undefined
+
+// newName(); // reference error beacuse of it is stored as a simple variable not a function,
+
+// function getName() {
+//   console.log("Hello World");
+// }
+
+// var a = 10;
+
+// let newName = () => {
+//   console.log("Hello World2");
+// };
